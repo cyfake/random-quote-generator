@@ -2,4 +2,10 @@
     display: flex;
     padding: 0 10%;
     justify-content: center;
+    min-height: 90vh;
+}
+
+main {
+    text-align: center;
+    margin: auto 0;
 }
