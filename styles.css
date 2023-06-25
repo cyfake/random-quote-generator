@@ -1,11 +1,26 @@
+body {
+    font-family: 'Roboto', sans-serif;;
+}
+
+#quote {
+    font-size: 1em;
+    margin-bottom: 0.2em;
+}
+
+#author {
+    font-style: italic;
+    font-size: 0.4em;
+}
+
 .container {
     display: flex;
     padding: 0 10%;
     justify-content: center;
-    min-height: 90vh;
+    min-height: 95vh;
 }
 
 main {
+    font-size: 60px;
     text-align: center;
     margin: auto 0;
 }
