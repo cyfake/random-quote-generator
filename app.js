@@ -5,3 +5,5 @@ generate.addEventListener('click', async function (e) {
     quote.innerText = `"${res.data[0].content}"`;
     author.innerText = `- ${res.data[0].author}`;
 })
+
+console.log("FILTER FEATURE IN PROGRESS")
