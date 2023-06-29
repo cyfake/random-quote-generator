@@ -1,9 +1,7 @@
-const generate = document.querySelector('#generate')
+const generate = document.querySelector('#generate-btn')
 generate.addEventListener('click', async function (e) {
     e.preventDefault();
     const res = await axios.get('https://api.quotable.io/quotes/random');
     quote.innerText = `"${res.data[0].content}"`;
     author.innerText = `- ${res.data[0].author}`;
 })
-
-console.log("FILTER FEATURE IN PROGRESS")
