@@ -7,9 +7,14 @@ generate.addEventListener('click', async function (e) {
     author.innerText = `- ${res.data[0].author}`;
 })
 
-const filter = document.querySelector('#filter-btn')
+const filter = document.querySelector('#filter-btn');
 const card = document.querySelector('.card');
+const close = document.querySelector('.close');
 
 filter.addEventListener('click', function() {
+    card.classList.toggle('visible');
+}) 
+
+close.addEventListener('click', function() {
     card.classList.toggle('visible');
 }) 
