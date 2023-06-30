@@ -1,3 +1,7 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 html {
     font-size: 100px;
 }
@@ -5,7 +9,10 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
 }
 
 .container {
@@ -23,11 +30,7 @@ main {
   margin: auto 0;
 }
 
-header {
-    display: flex;
-}
-
-.card {
+.modal {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -43,16 +46,44 @@ header {
     transform: scale(0);
 }
 
-.visible {
-    transform: scale(1);;
+.modal-header {
+    display: flex;
+    flex-direction: row-reverse;
 }
 
-.close {
-    align-self: flex-end;
+.modal-close {
     background-color: #fff;
     border: none;
     font-size: 0.5rem;
     font-weight: 100;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    align-items: flex-start;
+    height: 70%;
+}
+
+.checkbox {
+    display: flex;
+}
+
+.checkbox label {
+    font-size: 0.2rem;
+}
+
+.checkbox input[type="checkbox"] {
+    margin: 0 0.1rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.visible {
+    transform: scale(1);;
 }
 
 .btn-1 {
@@ -99,7 +130,6 @@ header {
 }
 
 #filter-txt {
-    font-family: 'Roboto', sans-serif;
     font-size: 0.12rem;
     font-weight: 600;
 }
@@ -112,7 +142,17 @@ header {
 
 #generate-txt {
     z-index: 1;
-    font-family: 'Roboto', sans-serif;
+    font-size: 0.18rem;
+    font-weight: 800;
+}
+
+#save-btn {
+    border-radius: 25px;
+    height: 0.5rem;
+    width: 1.5rem;
+}
+
+#save-txt {
     font-size: 0.18rem;
     font-weight: 800;
 }

@@ -1,20 +1,32 @@
-const generate = document.querySelector('#generate-btn')
+const filterBtn = document.querySelector('#filter-btn');
+const modal = document.querySelector('.modal');
+const modalClose = document.querySelector('.modal-close');
 
-generate.addEventListener('click', async function (e) {
-    e.preventDefault();
-    const res = await axios.get('https://api.quotable.io/quotes/random');
-    quote.innerText = `"${res.data[0].content}"`;
-    author.innerText = `- ${res.data[0].author}`;
+filterBtn.addEventListener('click', function() {
+    modal.classList.toggle('visible');
+}) 
+
+modalClose.addEventListener('click', function() {
+    modal.classList.toggle('visible');
+}) 
+
+const filter = document.querySelector('#filter');
+let tags = [];
+
+filter.addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.dir(document.forms.filter.elements.age.checked);
+
+    if(document.forms.filter.elements.age.checked) {
+        tags.push('wisdom');
+    }
 })
 
-const filter = document.querySelector('#filter-btn');
-const card = document.querySelector('.card');
-const close = document.querySelector('.close');
+const generate = document.querySelector('#generate-btn')
 
-filter.addEventListener('click', function() {
-    card.classList.toggle('visible');
-}) 
-
-close.addEventListener('click', function() {
-    card.classList.toggle('visible');
-}) 
+generate.addEventListener('click', async function (event) {
+    event.preventDefault();
+    const res = await axios.get(`https://api.quotable.io/quotes/random?tags=${tags}`);
+    quote.innerText = `"${res.data[0].content}"`;
+    author.innerText = `- ${res.data[0].author}, Tags: ${tags}`;
+})
