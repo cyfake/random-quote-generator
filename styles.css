@@ -3,6 +3,8 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -25,6 +27,26 @@ header {
     display: flex;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 0.05rem rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    height: 6rem;
+    width: 80vw;
+    position: absolute;
+    top: 10vh;
+    z-index: 2;
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
 .btn-1 {
     margin-top: 0.3rem;
     position: relative;
@@ -32,9 +54,8 @@ header {
     cursor: pointer;
     border: 2px solid #252525;
     overflow: hidden;
-    border-radius: 25px;
     color: #333;
-    transition: all 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
 }
 
 .btn-1::after {
@@ -63,18 +84,20 @@ header {
 }
 
 #filter-btn {
-    height: 0.3rem;
-    width: 0.75rem;
+    height: 0.24rem;
+    width: 0.5rem;
+    border-radius: 0.1rem;
     margin-top: 0;
 }
 
 #filter-txt {
     font-family: 'Roboto', sans-serif;
-    font-size: 0.15rem;
-    font-weight: 500;
+    font-size: 0.12rem;
+    font-weight: 600;
 }
 
 #generate-btn {
+    border-radius: 25px;
     height: 0.5rem;
     width: 2rem;
 }
@@ -96,5 +119,15 @@ header {
     padding: 0.2rem auto;
     margin: 0;
     font-size: 0.3rem;
+}
+
+#card-btn {
+    align-self: flex-start;
+    padding: 10px 5px;
+}
+
+#card-txt {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
 }
 
