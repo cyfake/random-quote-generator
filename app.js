@@ -2,8 +2,56 @@ const filterBtn = document.querySelector('#filter-btn');
 const modal = document.querySelector('.modal');
 const modalClose = document.querySelector('.modal-close');
 
+let allTags = [];
+let tags = [];
+
+const getAllTags = async () => {
+
+    const res = await axios.get('https://api.quotable.io/tags?')
+
+    const modalBody = document.querySelector('.modal-body');
+
+    for (let i = 0; i < res.data.length; i++) {
+
+        allTags.push(res.data[i].name);
+
+        let checkboxContainer = document.createElement('div');
+        checkboxContainer.classList.add('checkbox');
+
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = allTags[i];
+        checkbox.value = allTags[i];
+        checkbox.id = allTags[i];
+        checkboxContainer.append(checkbox);
+
+        let label = document.createElement('label');
+        label.htmlFor = allTags[i];
+        label.textContent = allTags[i];
+        checkboxContainer.append(label);
+
+        modalBody.append(checkboxContainer);
+    }
+};
+
+const setTags = () => {
+
+    const tagCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    for (let i = 0; i < tagCheckboxes.length; i++) {
+        if (tagCheckboxes[i].checked) {
+            tags.push(tagCheckboxes[i].name);
+        }
+    }
+
+    tags = tags.toString().replaceAll(',', '|');
+
+    console.log(tags);
+}
+
 filterBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
+    getAllTags();
 }) 
 
 modalClose.addEventListener('click', function() {
@@ -11,22 +59,24 @@ modalClose.addEventListener('click', function() {
 }) 
 
 const filter = document.querySelector('#filter');
-let tags = [];
+const saveBtn = document.querySelector('#save-btn');
 
 filter.addEventListener('submit', function(event) {
     event.preventDefault();
-    console.dir(document.forms.filter.elements.age.checked);
-
-    if(document.forms.filter.elements.age.checked) {
-        tags.push('wisdom');
-    }
+    
+    setTags();
 })
+
+saveBtn.addEventListener('click', function() {
+    modal.classList.toggle('visible');
+}) 
 
 const generate = document.querySelector('#generate-btn')
 
 generate.addEventListener('click', async function (event) {
     event.preventDefault();
     const res = await axios.get(`https://api.quotable.io/quotes/random?tags=${tags}`);
+    console.log(res);
     quote.innerText = `"${res.data[0].content}"`;
-    author.innerText = `- ${res.data[0].author}, Tags: ${tags}`;
+    author.innerText = `- ${res.data[0].author}`;
 })

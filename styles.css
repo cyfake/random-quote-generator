@@ -61,7 +61,7 @@ main {
 
 .modal-body {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     height: 70%;
 }
 
