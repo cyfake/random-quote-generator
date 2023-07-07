@@ -47,7 +47,6 @@ const filterBtn = document.querySelector('#filter-btn');
 
 filterBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
-
     getAllTags();
 }) 
 
@@ -62,7 +61,6 @@ const filter = document.querySelector('#filter');
 
 filter.addEventListener('submit', function(event) {
     event.preventDefault();
-    
     setTags();
 })
 
@@ -77,7 +75,6 @@ const generate = document.querySelector('#generate-btn');
 generate.addEventListener('click', async function (event) {
     event.preventDefault();
     const res = await axios.get(`https://api.quotable.io/quotes/random?tags=${tags}`);
-    console.log(res);
     quote.innerText = `"${res.data[0].content}"`;
     author.innerText = `- ${res.data[0].author}`;
 })
