@@ -32,16 +32,23 @@ const getAllTags = async () => {
 
 const setTags = () => {
 
-    const tagCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    for (let i = 0; i < tagCheckboxes.length; i++) {
-        if (tagCheckboxes[i].checked) {
-            tags.push(tagCheckboxes[i].name);
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            tags.push(checkboxes[i].name);
         }
     }
 
     tags = tags.toString().replaceAll(',', '|');
 }
+
+const modal = document.querySelector('.modal');
+const modalCloseBtn = document.querySelector('.modal-close');
+
+modalCloseBtn.addEventListener('click', function() {
+    modal.classList.toggle('visible');
+}) 
 
 const filterBtn = document.querySelector('#filter-btn');
 
@@ -50,16 +57,9 @@ filterBtn.addEventListener('click', function() {
     getAllTags();
 }) 
 
-const modal = document.querySelector('.modal');
-const modalClose = document.querySelector('.modal-close');
+const filterForm = document.querySelector('#filter');
 
-modalClose.addEventListener('click', function() {
-    modal.classList.toggle('visible');
-}) 
-
-const filter = document.querySelector('#filter');
-
-filter.addEventListener('submit', function(event) {
+filterForm.addEventListener('submit', function(event) {
     event.preventDefault();
     setTags();
 })
@@ -70,9 +70,9 @@ saveBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
 }) 
 
-const generate = document.querySelector('#generate-btn');
+const generateBtn = document.querySelector('#generate-btn');
 
-generate.addEventListener('click', async function (event) {
+generateBtn.addEventListener('click', async function (event) {
     event.preventDefault();
     const res = await axios.get(`https://api.quotable.io/quotes/random?tags=${tags}`);
     quote.innerText = `"${res.data[0].content}"`;
