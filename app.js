@@ -1,7 +1,3 @@
-const filterBtn = document.querySelector('#filter-btn');
-const modal = document.querySelector('.modal');
-const modalClose = document.querySelector('.modal-close');
-
 let allTags = [];
 let tags = [];
 
@@ -45,21 +41,24 @@ const setTags = () => {
     }
 
     tags = tags.toString().replaceAll(',', '|');
-
-    console.log(tags);
 }
+
+const filterBtn = document.querySelector('#filter-btn');
 
 filterBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
+
     getAllTags();
 }) 
+
+const modal = document.querySelector('.modal');
+const modalClose = document.querySelector('.modal-close');
 
 modalClose.addEventListener('click', function() {
     modal.classList.toggle('visible');
 }) 
 
 const filter = document.querySelector('#filter');
-const saveBtn = document.querySelector('#save-btn');
 
 filter.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -67,11 +66,13 @@ filter.addEventListener('submit', function(event) {
     setTags();
 })
 
+const saveBtn = document.querySelector('#save-btn');
+
 saveBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
 }) 
 
-const generate = document.querySelector('#generate-btn')
+const generate = document.querySelector('#generate-btn');
 
 generate.addEventListener('click', async function (event) {
     event.preventDefault();
