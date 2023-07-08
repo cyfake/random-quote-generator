@@ -56,17 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('.modal-close');
-
-//TODO: ADD GRAY BACKGROUND WHEN MODAL POPS UP
+const overlay = document.querySelector('#overlay');
 
 modalCloseBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
+    overlay.classList.toggle('active');
 }) 
 
 const filterBtn = document.querySelector('#filter-btn');
 
 filterBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
+    overlay.classList.toggle('active');
 }) 
 
 const filterForm = document.querySelector('#filter');
@@ -74,6 +75,7 @@ const filterForm = document.querySelector('#filter');
 filterForm.addEventListener('submit', function(event) {
     event.preventDefault();
     setTags();
+    overlay.classList.toggle('active');
 })
 
 const saveBtn = document.querySelector('#save-btn');

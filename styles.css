@@ -124,6 +124,22 @@ main {
     transform: scale(100) translateX(2px);
 }
 
+#overlay {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
 #filter-btn {
     height: 0.24rem;
     width: 0.5rem;
