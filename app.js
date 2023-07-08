@@ -7,23 +7,23 @@ const getAllTags = async () => {
 
     const modalBody = document.querySelector('.modal-body');
 
-    for (let i = 0; i < res.data.length; i++) {
+    for (let tag of res.data) {
 
-        allTags.push(res.data[i].name);
+        allTags.push(tag.name);
 
         let checkboxContainer = document.createElement('div');
         checkboxContainer.classList.add('checkbox');
 
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.name = allTags[i];
-        checkbox.value = allTags[i];
-        checkbox.id = allTags[i];
+        checkbox.name = tag.name;
+        checkbox.value = tag.name;
+        checkbox.id = tag.name;
         checkboxContainer.append(checkbox);
 
         let label = document.createElement('label');
-        label.htmlFor = allTags[i];
-        label.textContent = allTags[i];
+        label.htmlFor = tag.name;
+        label.textContent = tag.name;
         checkboxContainer.append(label);
 
         modalBody.append(checkboxContainer);
@@ -43,7 +43,7 @@ const setTags = () => {
     }
 
     tags = tags.toString().replaceAll(',', '|');
-    console.log(tags);
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
