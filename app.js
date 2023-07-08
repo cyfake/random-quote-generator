@@ -45,8 +45,14 @@ const setTags = () => {
     tags = tags.toString().replaceAll(',', '|');
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    getAllTags();
+});
+
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('.modal-close');
+
+//TODO: ADD GRAY BACKGROUND WHEN MODAL POPS UP
 
 modalCloseBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
@@ -56,7 +62,6 @@ const filterBtn = document.querySelector('#filter-btn');
 
 filterBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
-    getAllTags();
 }) 
 
 const filterForm = document.querySelector('#filter');
