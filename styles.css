@@ -137,7 +137,7 @@ main {
 
 #overlay.active {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
 }
 
 #filter-btn {
