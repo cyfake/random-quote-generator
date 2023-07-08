@@ -32,6 +32,8 @@ const getAllTags = async () => {
 
 const setTags = () => {
 
+    tags = [];
+
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
     for (let i = 0; i < checkboxes.length; i++) {
@@ -75,6 +77,7 @@ const generateBtn = document.querySelector('#generate-btn');
 generateBtn.addEventListener('click', async function (event) {
     event.preventDefault();
     const res = await axios.get(`https://api.quotable.io/quotes/random?tags=${tags}`);
+    console.log(res.data[0]);
     quote.innerText = `"${res.data[0].content}"`;
     author.innerText = `- ${res.data[0].author}`;
 })
