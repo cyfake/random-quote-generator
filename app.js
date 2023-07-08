@@ -9,6 +9,10 @@ const getAllTags = async () => {
 
     for (let tag of res.data) {
 
+        if (tag._id === "NLC25zc7-m5") {
+            break;
+        }
+
         allTags.push(tag.name);
 
         let checkboxContainer = document.createElement('div');
@@ -84,6 +88,7 @@ generateBtn.addEventListener('click', async function (event) {
     event.preventDefault();
     const res = await axios.get(`https://api.quotable.io/quotes/random?tags=${tags}`);
     console.log(res.data[0]);
+    console.log(tags);
     quote.innerText = `"${res.data[0].content}"`;
     author.innerText = `- ${res.data[0].author}`;
 })
