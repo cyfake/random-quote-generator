@@ -36,13 +36,14 @@ const setTags = () => {
 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    for (let i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-            tags.push(checkboxes[i].name);
+    for (let checkbox of checkboxes) {
+        if (checkbox.checked) {
+            tags.push(checkbox.name);
         }
     }
 
     tags = tags.toString().replaceAll(',', '|');
+    console.log(tags);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
