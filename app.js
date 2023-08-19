@@ -50,6 +50,17 @@ const setTags = () => {
 
 }
 
+const clearTags = () => {
+
+    tags = [];
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    for (let checkbox of checkboxes) {
+        checkbox.checked = false;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     getAllTags();
 });
@@ -83,6 +94,12 @@ const saveBtn = document.querySelector('#save-btn');
 saveBtn.addEventListener('click', function() {
     modal.classList.toggle('visible');
 }) 
+
+const clearBtn = document.querySelector('#clear-btn');
+
+clearBtn.addEventListener('click', function () {
+    clearTags();
+})
 
 const generateBtn = document.querySelector('#generate-btn');
 
