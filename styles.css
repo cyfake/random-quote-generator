@@ -150,6 +150,25 @@ main {
     transform: scale(100) translateX(2px);
 }
 
+.btn-2 {
+    margin-top: 0.3rem;
+    position: relative;
+    background-color: #252525;
+    cursor: pointer;
+    border: 2px solid #252525;
+    overflow: hidden;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+    max-height: min-content;
+}
+
+.btn-2:hover {
+    box-shadow: 1px 1px 50px #252525;
+    color: #252525;
+    background-color: #fff;
+    border: none;
+}
+
 #overlay {
     position: absolute;
     opacity: 0;
@@ -187,13 +206,10 @@ main {
     font-weight: 800;
 }
 
-#save-btn {
+#save-btn, #clear-btn {
     border-radius: 25px;
     height: 0.5rem;
     width: 1.5rem;
-}
-
-#save-txt {
     font-size: 0.18rem;
     font-weight: 800;
 }
