@@ -115,6 +115,7 @@ main {
     overflow: hidden;
     color: #333;
     transition: color 0.5s ease-in-out;
+    max-height: min-content;
 }
 
 .btn-1::after {
@@ -163,9 +164,6 @@ main {
     width: 0.5rem;
     border-radius: 0.1rem;
     margin-top: 0;
-}
-
-#filter-txt {
     font-size: 0.12rem;
     font-weight: 600;
 }
