@@ -6,6 +6,24 @@ html {
     font-size: 100px;
 }
 
+@media (max-width: 800px) {
+    html {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 70px;
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
