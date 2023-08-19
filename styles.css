@@ -55,7 +55,7 @@ main {
     border-radius: 0.2rem;
     box-shadow: 0 0 0.05rem rgba(0, 0, 0, 0.5);
     background-color: #fff;
-    height: 6rem;
+    height: 65vh;
     width: 80vw;
     position: absolute;
     top: 50%;
@@ -83,6 +83,13 @@ main {
     align-content: space-around;
     flex-wrap: wrap;
     height: 70%;
+}
+
+@media (max-width: 550px) {
+    .modal-body {
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+    }
 }
 
 .checkbox {
